@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link href="https://webfontworld.github.io/NanumSquare/NanumSquare.css" rel="stylesheet" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+  </head>
+  <body>
+    <div id="navbar">
+      <span>글 작성</span>
+    </div>
+    <div id="post-add">
+      <form action="/posts/create/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+          <label>제목</label>
+          <input name="title" type="text" />
+        </div>
+        <div>
+          <label>썸네일</label>
+          <input name="thumbnail" type="file" />
+        </div>
+        <div>
+          <textarea name="content" id="summernote"> </textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">작성</button>
+      </form>
+    </div>
+    <script>
+      $(document).ready(function () {
+        var fontList = ["sans-serif", "NanumSquare"];
+        $("#summernote").summernote({
+          toolbar: [
+            ["fontname", ["fontname"]],
+            ["fontsize", ["fontsize"]],
+            ["style", ["bold", "italic", "underline", "strikethrough", "clear"]],
+            ["color", ["forecolor", "color"]],
+            ["table", ["table"]],
+            ["para", ["ul", "ol", "paragraph"]],
+            ["height", ["height"]],
+            ["insert", ["picture", "link", "video"]],
+          ],
+          fontNames: fontList,
+          fontNamesIgnoreCheck: fontList,
+          fontSizes: ["8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "28", "30", "36", "50", "72"],
+          height: 280,
+        });
+      });
+    </script>
+  </body>
+</html>

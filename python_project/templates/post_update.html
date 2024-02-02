@@ -17,23 +17,27 @@
   </head>
   <body>
     <div id="navbar">
-      <span>글 작성</span>
+      <span>글 수정</span>
     </div>
     <div id="post-add">
-      <form method="POST" enctype="multipart/form-data">
+      <form action="/posts/update/{{post.id}}/" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div>
           <label>제목</label>
-          <input name="title" type="text" />
+          <input name="title" type="text" value="{{post.title}}" />
         </div>
         <div>
           <label>썸네일</label>
-          <input name="thumbnail" type="file" />
+          {% if post.thumbnail %}
+          <input name="thumbnail" type="file" value="{{post.thumbnail.name}}" />
+          {% else %}
+          <input name="thumbnail" type="file" value="" />
+          {% endif %}
         </div>
         <div>
-          <textarea name="content" id="summernote"> </textarea>
+          <textarea name="content" id="summernote">{{post.content}}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">작성</button>
+        <button type="submit" class="btn btn-primary">수정</button>
       </form>
     </div>
     <script>

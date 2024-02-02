@@ -17,6 +17,10 @@
       <a href="/posts/" class="btn btn-primary">돌아가기</a>
     </div>
     <div id="post-detail">
+      <div style="text-align: right; margin-block: 13px">
+        <a href="/posts/update/{{post.id}}" style="margin-inline: 10px">수정</a>
+        <a href="/posts/delete/{{post.id}}" style="margin-inline: 10px">삭제</a>
+      </div>
       <p>{{post.content | safe}}</p>
       <ul class="comments">
         {% for comment in post.comment_set.all %}

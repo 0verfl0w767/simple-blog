@@ -20,14 +20,16 @@ from django.contrib import admin
 from django.urls import path
 
 from config.views import index
-from blog.views import post_list, post_detail, post_add
+from blog.views import post, post_create, post_read, post_update, post_delete 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", index),
-    path("posts/", post_list),
-    path("posts/<int:post_id>/", post_detail),
-    path("posts/add/", post_add),
+    path("posts/", post),
+    path("posts/create/", post_create),
+    path("posts/read/<int:post_id>/", post_read),
+    path("posts/update/<int:post_id>/", post_update),
+    path("posts/delete/<int:post_id>/", post_delete),
 ]
 
 urlpatterns += static(

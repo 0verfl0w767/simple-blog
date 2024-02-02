@@ -11,12 +11,12 @@
   <body>
     <div id="navbar">
       <span>pylog</span>
-      <a href="/posts/add/" class="btn btn-primary">글 작성</a>
+      <a href="/posts/create/" class="btn btn-primary">글 작성</a>
     </div>
     <div id="post-list">
       <ul class="posts">
         {% for post in posts %}
-        <li class="post" onclick="location.href='/posts/{{post.id}}'">
+        <li class="post" onclick="location.href='/posts/read/{{post.id}}'">
           <div class="title">{{post.title}}</div>
           <p class="preview">{{post.content | striptags}}</p>
           <ul>
