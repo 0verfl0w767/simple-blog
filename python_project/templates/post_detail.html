@@ -13,6 +13,7 @@
       <img src="{{post.thumbnail.url}}" alt="" />
     {% endif %}
     <span>{{post.title}}</span>
+    <a href="/posts/" class="btn btn-primary">돌아가기</a>
   </div>
   <div id="post-detail">
     <p>{{post.content | linebreaksbr}}</p>
@@ -25,7 +26,7 @@
     </ul>
     <form method="POST">
       {% csrf_token %}
-      <textarea name="comment"> </textarea>
+      <textarea name="comment"></textarea>
       <button type="submit" class="btn btn-primary">댓글 작성</button>
     </form>
   </div>

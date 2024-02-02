@@ -1,11 +1,19 @@
-.pre-view {
-  width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
-  text-align: left;
-  word-wrap: break-word;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+.title {
+  color: #666;
+  font-weight: bold;
+  font-size: 17pt;
+}
+.preview {
+	display: block;
+	overflow: hidden;
+	max-width: 95%;
+	margin-bottom: 15px;
+	text-overflow: ellipsis;
+	font-size: 0.8125em;
+	line-height: 1.5rem;
+	color: #666;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+  height: 63px;
 }

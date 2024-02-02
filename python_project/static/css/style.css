@@ -147,21 +147,17 @@ ul.posts {
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: 20px 130px 20px 0; }
+    padding: 20px 130px 20px 0;
+    cursor: pointer; }
     ul.posts > li.post:not(:last-child) {
       border-bottom: 1px solid #eee; }
     ul.posts > li.post h2 {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis; }
-    ul.posts > li.post p {
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden; }
     ul.posts > li.post img {
       position: absolute;
-      top: 17px;
+      top: 31px;
       right: 0;
       width: 120px;
       height: 120px;
@@ -215,7 +211,7 @@ ul.posts {
     #post-add input:focus, #post-add textarea:focus {
       outline: none; }
   #post-add textarea {
-    width: 100%;
+    /* width: 100%; */
     min-height: 100px;
     box-sizing: border-box;
     resize: none; }
