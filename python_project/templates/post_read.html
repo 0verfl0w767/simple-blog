@@ -22,19 +22,22 @@
         <a href="/posts/update/{{post.id}}" style="margin-inline: 10px">수정</a>
         <a href="/posts/delete/{{post.id}}" style="margin-inline: 10px">삭제</a>
       </div>
-      <p>{{post.content | safe}}</p>
-      <ul class="comments">
-        {% for comment in post.comment_set.all %}
-        <li class="comment">{{comment.content}}</li>
-        {% empty %}
-        <li class="comment-empty">아직 댓글이 없습니다.</li>
-        {% endfor %}
-      </ul>
-      <form method="POST">
-        {% csrf_token %}
-        <textarea name="comment"></textarea>
-        <button type="submit" class="btn btn-primary">댓글 작성</button>
-      </form>
+      <div class="content">{{post.content | safe}}</div>
+      <div class="comments-box">
+        <span>{{post.comment_set.all | length }} Comments.</span>
+        <ul class="comments">
+          {% for comment in post.comment_set.all %}
+          <li class="comment">{{comment.content}}</li>
+          {% empty %}
+          <li class="comment-empty">아직 댓글이 없습니다.</li>
+          {% endfor %}
+        </ul>
+        <form method="POST">
+          {% csrf_token %}
+          <textarea name="comment"></textarea>
+          <button type="submit" class="btn btn-primary">댓글 작성</button>
+        </form>
+      </div>
     </div>
     <div class="footer">
       <div class="flex-1">

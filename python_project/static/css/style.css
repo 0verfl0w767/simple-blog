@@ -29,9 +29,15 @@ html {
   margin: 0;
   font-family: "Noto Sans KR", serif;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 15px;
   color: #333;
   height: 100%;
+}
+
+@media (width < 576px) {
+  html {
+    font-size: 13px;
+  }
 }
 
 body {
@@ -117,6 +123,7 @@ a.btn {
 }
 
 ul.comments {
+  padding: 10px;
   font-size: 12px;
 }
 ul.comments > div {
@@ -126,17 +133,17 @@ ul.comments > div {
   font-weight: 500;
 }
 ul.comments > li.comment {
-  list-style: disc;
-  margin-left: 1.5em;
+  border-bottom: 1px solid #bbb;
+  padding-block: 10px;
 }
 ul.comments > li.comment-empty {
   font-style: italic;
 }
 
 @media only screen and (hover: none) and (pointer: coarse) {
-  html {
+  /* html {
     font-size: 4vw;
-  }
+  } */
 
   #post-list {
     padding: 14vw 0;
@@ -224,19 +231,19 @@ ul.posts > li.post img[alt]:after {
 #post-detail {
   padding: 59px 10px;
 }
-#post-detail ul.post-detail-comments li.post-detail-comment {
+#post-detail .comments-box ul.post-detail-comments li.post-detail-comment {
   list-style: disc;
   margin-left: 1.5em;
 }
-#post-detail ul.post-detail-comments li.post-detail-comment-empty {
+#post-detail .comments-box ul.post-detail-comments li.post-detail-comment-empty {
   font-style: italic;
 }
-#post-detail > form {
+#post-detail .comments-box > form {
   width: 100%;
   margin-top: 10px;
   display: flex;
 }
-#post-detail > form > textarea {
+#post-detail .comments-box > form > textarea {
   border: 1px solid #eee;
   padding: 10px;
   box-sizing: border-box;
@@ -245,10 +252,10 @@ ul.posts > li.post img[alt]:after {
   flex-grow: 1;
   margin-right: 6px;
 }
-#post-detail > form > textarea:focus {
+#post-detail .comments-box > form > textarea:focus {
   outline: none;
 }
-#post-detail > form > button {
+#post-detail .comments-box > form > button {
   height: 57px;
   line-height: 50px;
   border-radius: 2px;

@@ -19,6 +19,19 @@
   height: 63px;
 }
 
+p {
+  margin: 0;
+}
+
+.content {
+  color: black;
+  margin-block: 20px;
+}
+
+.comments-box {
+  margin-block: 10px;
+}
+
 .footer {
   display: flex;
   justify-content: center;
@@ -55,18 +68,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   padding-block: 20px;
 }
 
-.sponsor-text {
-  padding-inline: 10px;
-}
-
-.sponsor-img {
+.sponsor-img-cloud {
+  padding-inline: 4px;
   max-width: 125px;
   overflow: hidden;
 }
 
-.sponsor-img img {
+.sponsor-img-school {
+  padding-inline: 4px;
+  max-width: 144px;
+  overflow: hidden;
+}
+
+.sponsor img {
+  display: flex;
+  flex-wrap: wrap;
   max-width: initial;
 }
