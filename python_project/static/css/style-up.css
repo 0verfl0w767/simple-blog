@@ -18,3 +18,55 @@
   -webkit-box-orient: vertical;
   height: 63px;
 }
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding-inline: 40px;
+}
+
+@media (width < 576px) {
+  .footer {
+    flex-direction: column-reverse;
+  }
+}
+
+.logo {
+  font-weight: bold;
+}
+
+.flex-1 {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.flex-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flex-2 > li {
+  margin-inline: 10px;
+}
+
+.sponsor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 20px;
+}
+
+.sponsor-text {
+  padding-inline: 10px;
+}
+
+.sponsor-img {
+  max-width: 125px;
+  overflow: hidden;
+}
+
+.sponsor-img img {
+  max-width: initial;
+}
