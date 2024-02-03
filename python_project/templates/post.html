@@ -19,9 +19,10 @@
         <li class="post" onclick="location.href='/posts/read/{{post.id}}'">
           <div class="title">{{post.title}}</div>
           <p class="preview">{{post.content | striptags}}</p>
-          <ul>
-            <li>댓글이 {{post.comment_set.all | length}}개 있습니다.</li>
-          </ul>
+          <div class="preview-info">
+            <div class="preview-right">{{post.uid | stringformat:"i" | slice:"0:5"}}*****</div>
+            <div class="preview-left">댓글 {{post.comment_set.all | length}}개</div>
+          </div>
           <!-- <ul>
             {% for comment in post.comment_set.all %}
             <li>{{comment.content}}</li>
@@ -56,9 +57,9 @@
       <div class="sponsor-img-cloud">
         <img src="https://t1.kakaocdn.net/kakaoicloud/portal/images/logo_black_230116.png" width="160" />
       </div>
-      <div class="sponsor-img-school">
+      <!-- <div class="sponsor-img-school">
         <img src="https://www.syu.ac.kr/wp-content/uploads/2018/05/pg_logo4.png" width="160" />
-      </div>
+      </div> -->
     </div>
   </body>
 </html>

@@ -20,11 +20,15 @@ from django.contrib import admin
 from django.urls import path
 
 from config.views import index
+from auth.views import kakaologin, callback, kakaologout
 from blog.views import post, post_create, post_read, post_update, post_delete 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", index),
+    path("auth/kakao/", kakaologin),
+    path("auth/kakao/callback/", callback),
+    path("auth/kakao/logout/", kakaologout),
     path("posts/", post),
     path("posts/create/", post_create),
     path("posts/read/<int:post_id>/", post_read),

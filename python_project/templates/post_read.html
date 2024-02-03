@@ -14,7 +14,7 @@
       {% if post.thumbnail %}
       <img src="{{post.thumbnail.url}}" alt="" />
       {% endif %}
-      <span>{{post.title}}</span>
+      <span class="title">{{post.title}}</span>
       <a href="/posts/" class="btn btn-primary">돌아가기</a>
     </div>
     <div id="post-detail">
@@ -27,7 +27,7 @@
         <span>{{post.comment_set.all | length }} Comments.</span>
         <ul class="comments">
           {% for comment in post.comment_set.all %}
-          <li class="comment">{{comment.content}}</li>
+          <li class="comment">{{post.uid | stringformat:"i" | slice:"0:5"}}*****: {{comment.content}}</li>
           {% empty %}
           <li class="comment-empty">아직 댓글이 없습니다.</li>
           {% endfor %}

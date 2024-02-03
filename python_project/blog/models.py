@@ -1,6 +1,7 @@
 from django.db import models
 
 class Post(models.Model):
+  uid = models.IntegerField("아이디")
   title = models.CharField("포스트 제목", max_length=100)
   content = models.TextField("포스트 내용")
   thumbnail = models.ImageField("썸네일 이미지", upload_to='post', blank=True)
@@ -9,6 +10,7 @@ class Post(models.Model):
     return self.title
 
 class Comment(models.Model):
+  uid = models.IntegerField("아이디")
   post = models.ForeignKey(Post, on_delete=models.CASCADE)
   content = models.TextField("댓글 내용")
   

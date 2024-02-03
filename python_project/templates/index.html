@@ -1,16 +1,22 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-</head>
-<body>
-  <div id="index">
-    <h1><a href="/posts/">pylog</a></h1>
-    <small>Life is short, You need Python.</small>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <div id="index">
+      <h1><a href="/posts/">pylog</a></h1>
+      {% if "id" in request.session %}
+      <a href="/auth/kakao/logout/" class="btn btn-primary">로그아웃</a>
+      <small>You're login.</small>
+      {% else %}
+      <a href="/auth/kakao" class="btn btn-primary">로그인</a>
+      <small>You're not login.</small>
+      {% endif %}
+    </div>
+  </body>
 </html>
