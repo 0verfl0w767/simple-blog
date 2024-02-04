@@ -130,3 +130,5 @@ MEDIA_ROOT = BASE_DIR/"media"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SESSION_COOKIE_AGE = 60 * 60 * 12
+
+CSRF_TRUSTED_ORIGINS = ['https://*.syu.kr', 'http://127.0.0.1']
