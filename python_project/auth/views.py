@@ -14,15 +14,6 @@ def kakaologin(request):
   URL = f"https://kauth.kakao.com/oauth/authorize?response_type=code&client_id={REST_API_KEY}&redirect_uri={REDIRECT_URI}"
   return redirect(URL)
 
-def kakaologout(request):
-  USER_HEADER = {
-    "Authorization": "Bearer $" + request.session["token"]
-  }
-  requests.post("https://kapi.kakao.com/v1/user/unlink", headers=USER_HEADER).json()
-  del request.session["id"]
-  del request.session["token"]
-  return redirect("/")
-
 def callback(request):
   TOKEN_HEADER = {
     "Content-type": "application/x-www-form-urlencoded;charset=utf-8"
@@ -42,5 +33,14 @@ def callback(request):
   USER_DATA = requests.get("https://kapi.kakao.com/v2/user/me", headers=USER_HEADER).json()
   request.session["id"] = USER_DATA["id"]
   request.session["token"] = ACCESS_TOKEN
+  return redirect("/")
+
+def kakaologout(request):
+  USER_HEADER = {
+    "Authorization": "Bearer $" + request.session["token"]
+  }
+  requests.post("https://kapi.kakao.com/v1/user/unlink", headers=USER_HEADER)
+  del request.session["id"]
+  del request.session["token"]
   return redirect("/")
   
